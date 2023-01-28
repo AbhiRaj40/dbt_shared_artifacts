@@ -2,6 +2,13 @@ version: 2
 
 sources:
 
+  - name: SAP_ECC
+    database: OPS_RAW
+    schema: SAP_ECC
+    tables:
+      - name: EKKO
+      - name: EKPO
+
   - name: SAP_ONE
     database: STAGING
     schema: MASTER_DATA
@@ -9,7 +16,7 @@ sources:
       - name: EKKO
       - name: EKPO
 
-  - name: SAP_ECC
+  - name: SAP_ECC_1
     database: ATMOIC
     schema: MASTER_DATA
     tables: &tables #the table names gets repeated for all ecc regions. using this 'anchor' we can avoid duplicate code.

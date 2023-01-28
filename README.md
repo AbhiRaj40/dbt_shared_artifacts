@@ -1,15 +1,7 @@
-Welcome to your new dbt project!
+dbt_shared_artificats
 
-### Using the starter project
+To manage and maintain all the external dbt packages as well as maintain our common core business logic macros and models
 
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+1. Models that can be shared across multiple repository, such as calendar model that defines the specific business logics.
+2. Macros to be used across the business units. Things like date conversions, seed files to help segment company wide attributes, etc
+3. Shared sources (sources.yml files + staging models for those sources)

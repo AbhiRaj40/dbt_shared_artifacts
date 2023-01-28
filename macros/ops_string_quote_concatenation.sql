@@ -1,4 +1,4 @@
-{% macro string_quote_concatenation(input_value = none) %}
+{% macro ops_string_quote_concatenation(input_value = none) %}
     {%- if input_value is not none -%}
         {{- "'" + input_value + "'" -}}
     {%- else -%}

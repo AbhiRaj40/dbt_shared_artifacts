@@ -9,33 +9,33 @@ sources:
       - name: EKKO
       - name: EKPO
 
-  - name: SAP_ONE
-    database: STAGING
-    schema: MASTER_DATA
-    tables:
-      - name: EKKO
-      - name: EKPO
-
-  - name: SAP_ECC_1
-    database: ATMOIC
-    schema: MASTER_DATA
-    tables: &tables #the table names gets repeated for all ecc regions. using this 'anchor' we can avoid duplicate code.
-
-  - name: SAP_S4HANA
-    database: ATMOIC
-    schema: MASTER_DATA
-    tables: *tables # references the anchor declared above. no need to declare all the table names again. It will pick from above anchored variable.
-
-  - name: SAP_MDG
-    database: STAGING
-    schema: MASTER_DATA
-    tables:
-      - name: EKKO
-      - name: EKPO
-
-  - name: SAP_MDG_1
-    database: STAGING
-    schema: MASTER_DATA
-    tables:
-      - name: EKKO
-      - name: EKPO
+#  - name: SAP_ONE
+#    database: STAGING
+#    schema: MASTER_DATA
+#    tables:
+#      - name: EKKO
+#      - name: EKPO
+#
+#  - name: SAP_ECC_1
+#    database: ATMOIC
+#    schema: MASTER_DATA
+#    tables: &tables #the table names gets repeated for all ecc regions. using this 'anchor' we can avoid duplicate code.
+#
+#  - name: SAP_S4HANA
+#    database: ATMOIC
+#    schema: MASTER_DATA
+#    tables: *tables # references the anchor declared above. no need to declare all the table names again. It will pick from above anchored variable.
+#
+#  - name: SAP_MDG
+#    database: STAGING
+#    schema: MASTER_DATA
+#    tables:
+#      - name: EKKO
+#      - name: EKPO
+#
+#  - name: SAP_MDG_1
+#    database: STAGING
+#    schema: MASTER_DATA
+#    tables:
+#      - name: EKKO
+#      - name: EKPO

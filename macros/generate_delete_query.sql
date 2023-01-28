@@ -6,7 +6,7 @@
     {%- set ns = namespace(query = 'false', source_tables_region = [], source_tables_non_region = []) -%}
     {%- set ecc_regions = ['SAP_ECC_MANA','SAP_ECC_MXOT'] -%}
 
-    {# separate sources into two categories - Tables that are available in 7 regions and tables available in single regions #}
+    {# segregate sources in to two categories - Tables that are available in 7 regions and tables available in single regions #}
 
     {%- for i in sources -%}
         {%- if 'region' in i -%}
@@ -26,11 +26,11 @@
 
     {%- for i in ns.source_table_non_region -%}
         {%- set i = i.replace(' ','') -%}
-        {%- set db_table = i.replace("'","").split('(')[1].split(')')[0].split(',') -%}
+        {%- set db_table = i.replace("'", "").split('(')[1].split(')')[0].split(',') -%}
         {%- set db_name = db_table[0] -%}
         {%- set table_name = db_table[1] -%}
         {%- set var_val = source(db_name, table_name) | string -%}
-        {%- set ns.query = ns.query + db_name + "_" + table_name + " as (select * from " + var_val + " where RECORDSTATUS != 'D' ), \n" -%}
+        {%- set ns.query = ns.query + db_name + "_" + table_name + " as(select * from " + var_val + " where RECORDSTATUS != 'D' ),\n" -%}
     {%- endfor -%}
 
     {# use loop to generate query for all seven regions #}
@@ -42,8 +42,8 @@
         {%- set db_name = db_table[0] -%}
         {%- set table_name = db_table[1] -%}
         {%- set var_val = source(region, table_name) | string -%}
-        {%- set ns.query = ns.query + region + "_" + table_name + " as (select * from " + var_val + " where RECORDSTATUS != 'D' ), \n" -%}
+        {%- set ns.query = ns.query + region + "_" + table_name + " as(select * from " + var_val + " where RECORDSTATUS != 'D' ),\n" -%}
     {%- endfor -%}
     {%- endfor -%}
     {{- ns.query -}}
-{%- endmacro -%
+{%- endmacro -%}
